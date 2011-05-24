@@ -95,7 +95,7 @@ describe MicropostsController do
     end
     
     it "should be successful" do
-      get :index, :id => @user
+      get :index, :user_id => @user
       response.should be_successful
     end
   end
