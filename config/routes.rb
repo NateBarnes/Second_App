@@ -1,6 +1,7 @@
 SecondApp::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :microposts, :only => [:create, :destroy, :index]
 
   root :to => "pages#home"
   
@@ -10,6 +11,8 @@ SecondApp::Application.routes.draw do
   match "/signup", :to => "users#new"
   match "/signin", :to => "sessions#new"
   match "/signout", :to => "sessions#destroy"
+  
+  match "/users/:id/microposts", :to => "microposts#index"
   
   get "pages/home"
   get "pages/contact"
